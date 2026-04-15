@@ -44,10 +44,13 @@ function addTask() {
     const newTask = input.value.trim();
 
     if (newTask === "") {
-        showMessage("Task added!", "success");
+        showMessage("Please enter a task.", "error");
         return;
     }
-
+    else {
+        showMessage("Task added!", "success");
+    }
+    
     myTasks.push({
         id: Date.now(),
         name: newTask,

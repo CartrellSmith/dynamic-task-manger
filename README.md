@@ -1,9 +1,7 @@
 # 📘 The Dynamic Task Manager
 
 A clean, modern, and responsive task management application built with
-**HTML**, **Tailwind CSS**, and **JavaScript**. Designed with a professional,
-masculine UI featuring a purple-to-gray gradient header, glassmorphism card
-layout, and smooth interactive elements.
+**HTML**, **Tailwind CSS**, and **JavaScript**. Designed with a professional, masculine UI featuring a purple-to-gray gradient header, glassmorphism card layout, and smooth interactive elements.
 
 ## ✨ Features
 
@@ -16,6 +14,9 @@ layout, and smooth interactive elements.
 - Custom purple → gray → purple gradient header
 - Ionicons for clean, modern icons
 - Fully responsive layout
+- Tasks are saved automatically using localStorage, so the list stays after refresh.
+- Prevents empty tasks from being added using input validation.
+- Includes a dropdown menu that lists all current tasks for easy deletion.
 
 ---
 
@@ -73,6 +74,17 @@ Glassmorphism container:
 - LocalStorage saving  
 - Editable tasks  
 - Completed task checkmarks  
+
+---
+
+## 🔧 Additional Logic Implemented
+
+### 1. LocalStorage Persistence
+The app saves all tasks using `localStorage`.  
+When the page loads, tasks are restored using:
+
+```js
+myTasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 ---
 

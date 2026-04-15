@@ -11,6 +11,8 @@ const taskList = document.getElementById("taskList");
 // 2. STORAGE (Task List)
 // =============================
 let myTasks = [];
+myTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+renderTasks();
 
 // =============================
 // 3. TRIGGERS (Button Clicks)
@@ -23,28 +25,38 @@ clearBtn.addEventListener("click", clearTasks);
 // 4. FUNCTIONS (Empty for now)
 // =============================
 function addTask() {
-    const newTask = input.value.trim(); // 1. Capture the text
+    const newTask = input.value.trim();
 
-    if (newTask !== "") {
-        myTasks.push(newTask);          // 2. Store it in the array
-        input.value = "";              // Clear the input field
-        renderTasks();                // 3. Update the display
+    if (newTask === "") {
+        alert("Please enter a task before adding.");
+        return;
     }
+
+    myTasks.push(newTask);
+    localStorage.setItem("tasks", JSON.stringify(myTasks));
+    input.value = "";
+    renderTasks();
 }
 
 function deleteTask() {
-    const targetTask = input.value.trim(); // 1. Capture the text
-    let collector = [];                    // New Temporary array
+    const selectedTask = document.getElementById("taskDropdown").value;
+
+    if (selectedTask === "") {
+        alert("Please select a task to delete.");
+        return;
+    }
+
+    const updatedList = [];
 
     for (const task of myTasks) {
-        if (task !== targetTask) {
-            collector.push(task);   // 2. Store non-matching tasks in
+        if (task !== selectedTask) {
+            updatedList.push(task);
         }
     }
 
-    myTasks = collector;    // 3. Replace the original array
-    input.value = "";    // Clear the input field
-    renderTasks();      // 4. Update the display
+    myTasks = updatedList;
+    localStorage.setItem("tasks", JSON.stringify(myTasks));
+    renderTasks();
 }
 
 function clearTasks() {
@@ -52,6 +64,7 @@ function clearTasks() {
     taskList.innerHTML = ""; // Clear the displayed list
     console.clear();    // 2. Clear the console
     console.log("All tasks have been cleared!");
+    localStorage.setItem("tasks", JSON.stringify(myTasks)); // 3. Save to local storage
 }
 
 function renderTasks() {
@@ -79,5 +92,14 @@ function renderTasks() {
         }, 10);
 
         counter++;
+    }
+    const dropdown = document.getElementById("taskDropdown");
+    dropdown.innerHTML = '<option value="">Select a task to delete...</option>';
+
+    for (const task of myTasks) {
+        const option = document.createElement("option");
+        option.value = task;
+        option.textContent = task;
+        dropdown.appendChild(option);
     }
 }

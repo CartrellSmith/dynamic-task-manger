@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, 
+    initial-scale=1.0">
+    <title>The Dynamic Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script srcc="https://unpkg.com/heroicons@2.0.16/dist/heroicons.js"></script>
+    <!-- Color Palete: #4B2E83 (bg); #2F2F2F (br, headings, bold); #FFFFFF (text) -->
+</head>
+
+<body class="bg-gray-100 text-gray-900 p-6">
+    <header class="bg-gradient-to-r from-brandPurple to-purple-900 text-white py-6 mb-8 shadow-lg">
+        <h1 class="text-3xl font-bold text-center tracking-wide">
+        Project: The Dynamic Task Manager
+        </h1>
+</header>
+
+
+        <p class="text-center text-purple-700 max-w-xl max-w-xl mx-auto mb-8">
+        Manage your tasks efficiently and efficiently!
+    </p>
+
+    <div class="max-w-md mx-auto p-6 rounded-xl shadow-xl border border-white/20 
+            bg-white/70 backdrop-blur-xl dark:bg-gray-800/60 dark:border-gray-700/40">
+        <h2 class="text-xl text-center font-semibold text-purple-800 mb-4">
+            Task List
+        </h2>
+
+        <!-- Input Field -->
+        <input 
+            id="taskInput"
+            type="text" 
+            placeholder="Enter a new task..." 
+            class="w-full p-3 border-2 border-purple-700 rounded-lg mb-4 focus:outline-none focus:border-gray-900"
+            >
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap gap-3 mb-4"
+        >
+            <button 
+            id="addBtn"
+            class="bg-purple-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-900">
+            <svg class="w-5 h-5"><use href="#plus-solid"/></svg>
+            Add Task
+            </button>
+
+            <button 
+            id="deleteBtn"
+            class="bg-gray-900 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black">
+            <svg class="w-5 h-5"><use href="#trash-solid"/></svg>
+            Delete Task
+            </button>
+            
+            <button 
+            id="clearBtn"
+            class="bg-red-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-800">
+            <svg class="w-5 h-5"><use href="#x-mark-solid"/></svg>
+            Clear All Tasks
+            </button>
+        </div>
+    
+        <!-- Show Task on Screen -->
+        <ul 
+        id="taskList"
+        class="space-y-3">
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

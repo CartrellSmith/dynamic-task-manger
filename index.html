@@ -37,7 +37,7 @@
     <div class="max-w-md mx-auto p-6 rounded-xl shadow-xl border border-white/20 
             bg-white/70 backdrop-blur-xl dark:bg-gray-800/60 dark:border-gray-700/40">
         <h2 class="text-xl text-center font-semibold text-purple-800 mb-4">
-            Task List
+            Task Management
         </h2>
 
         <!-- Input Field -->
@@ -46,13 +46,19 @@
         <select id="taskDropdown" class="w-full p-3 border-2 border-purple-700 rounded-lg mb-4">
             <option value="">Select a task to delete...</option>
         </select>
+<hr class="border-purple-200 my-4">
 
          <!-- Show Task on Screen -->
+        <h2 
+        class="text-xl font-semibold text-purple-700 mb-3">
+        Your Tasks
+        </h2>
+
         <ul 
             id="taskList" 
-            class="space-y-3 mb-6 p-4 bg-white/70 rounded-xl shadow">
+            class="space-y-3 mb-6 p-4 bg-white/70 rounded-xl shadow p-4">
         </ul>
-
+<hr class="border-purple-200 my-4">
         <!-- Buttons -->
         <div class="flex flex-wrap gap-3 mb-6 justify-center">
             <button id="addBtn" class="bg-purple-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-900 hover:text-white hover:shadow-xl hover:-translate-y-1

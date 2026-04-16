@@ -50,7 +50,7 @@ function addTask() {
     else {
         showMessage("Task added!", "success");
     }
-    
+
     myTasks.push({
         id: Date.now(),
         name: newTask,
@@ -132,4 +132,3 @@ function renderTasks() {
         taskDropdown.appendChild(option);
     }
 }
-

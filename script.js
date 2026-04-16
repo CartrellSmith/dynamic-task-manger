@@ -42,7 +42,8 @@ function showMessage(text, type) {
 
 function addTask() {
     const newTask = input.value.trim();
-
+    
+    // Prevent empty tasks
     if (newTask === "") {
         showMessage("Please enter a task.", "error");
         return;
@@ -50,12 +51,21 @@ function addTask() {
     else {
         showMessage("Task added!", "success");
     }
+    
+    // Prevent duplicate tasks (case-insensitive)
+    const duplicate = myTasks.some(task => task.name.toLowerCase() === newTask.toLowerCase());
+    if (duplicate) {
+        showMessage("That task already exists.", "error");
+        return;
+    }
 
+    // Add task
     myTasks.push({
         id: Date.now(),
         name: newTask,
         completed: false
     });
+    
     localStorage.setItem("tasks", JSON.stringify(myTasks));
     input.value = "";
     renderTasks();

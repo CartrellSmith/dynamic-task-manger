@@ -65,7 +65,18 @@ function addTask() {
         name: newTask,
         completed: false
     });
-    
+
+    // Print task in console using for...of loop
+    console.clear();
+    for (const task of myTasks) {
+        console.log(task.name);
+    }
+
+    // Classic for loop numbered list in console
+    for (let i = 0; i < myTasks.length; i++) {
+        console.log(`${i + 1}. ${myTasks[i].name}`);
+    }
+
     localStorage.setItem("tasks", JSON.stringify(myTasks));
     input.value = "";
     renderTasks();
@@ -94,10 +105,17 @@ function deleteTask() {
 }
 
 function clearTasks() {
-    myTasks = [];       // 1. Clear the array
+    // While Loop + .pop()
+    while (myTasks.length > 0) {
+        myTasks.pop();
+    }
+    // Update UI
     taskList.innerHTML = ""; // Clear the displayed list
+    // Console feedback
     console.clear();    // 2. Clear the console
     console.log("All tasks have been cleared!");
+
+    // Save to local storage
     localStorage.setItem("tasks", JSON.stringify(myTasks)); // 3. Save to local storage
 }
 

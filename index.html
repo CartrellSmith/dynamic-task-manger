@@ -13,6 +13,7 @@
 </head>
 
 <body class="bg-gray-100 text-gray-900 p-6 border-2 border-gray-300 rounded-lg shadow-lg">
+
     <header
         class="bg-gradient-to-r from-[#4B2E83] via-gray-400 to-[#4B2E83] text-white py-6 mb-8 shadow-lg flex items-center justify-center gap-4 rounded-lg border-2 border-gray-300">
 
@@ -30,90 +31,95 @@
 
     </header>
 
-    <section>
-    <p class="text-center text-purple-700 max-w-xl max-w-xl mx-auto mb-8">
-        Manage your tasks efficiently and efficiently!
-    </p>
-    <p class="text-center text-gray-600 max-w-xl mx-auto mb-8">
-        1: Enter a task in the input field and click "Add Task" to add it to your list.<br>
-        2: To delete a specific task, select it from the dropdown and click "Delete Task".<br>
-        3: Mark tasks as completed by clicking on them in the task list.<br>
-        4: To clear all tasks, click the "Clear All" button.<br>
-        5: Your tasks will be displayed below the buttons for easy reference.
-    </p>
-    </section>
+    <main>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-l mx-auto p-6 rounded-xl shadow-xl border border-white/20 
-            bg-white/70 backdrop-blur-xl">
-        
-        <div>
-            <h2 class="text-xl text-center font-semibold text-purple-800 mb-4">
-                Task Management
-            </h2>
+        <section>
 
-            <!-- Input Field -->
-            <input id="taskInput" type="text" placeholder="Enter a new task..."
-                class="w-full p-3 border-2 border-purple-700 rounded-lg mb-4 focus:outline-none focus:border-gray-900">
-            <select id="taskDropdown" class="w-full p-3 border-2 border-purple-700 rounded-lg mb-4">
-                <option value="">Select a task to delete...</option>
-            </select>
+            <p class="text-center text-purple-700 max-w-xl max-w-xl mx-auto mb-8">
+                Manage your tasks efficiently and efficiently!
+            </p>
 
-            <!-- Buttons -->
-            <div class="flex flex-wrap gap-3 mb-6 justify-center">
-                <button id="addBtn" class="bg-purple-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-900 hover:text-white hover:shadow-xl hover:-translate-y-1
-                        transition-all duration-300">
-                    <ion-icon name="add-circle-outline"></ion-icon>
-                    Add Task
-                </button>
+            <p class="text-center text-gray-600 max-w-xl mx-auto mb-8">
+                1: Enter a task in the input field and click "Add Task" to add it to your list.<br>
+                2: To delete a specific task, select it from the dropdown and click "Delete Task".<br>
+                3: Mark tasks as completed by clicking on them in the task list.<br>
+                4: To clear all tasks, click the "Clear All" button.<br>
+                5: Your tasks will be displayed below the buttons for easy reference.
+            </p>
 
-                <button id="deleteBtn" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black hover:text-white hover:shadow-xl hover:-translate-y-1
-                        transition-all duration-300">
-                    <ion-icon name="close-circle-outline"></ion-icon>
-                    Delete Task
-                </button>
+        </section>
 
-                <button id="clearBtn" class="bg-red-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-800 hover:text-white hover:shadow-xl hover:-translate-y-1
-                        transition-all duration-300">
-                    <ion-icon name="nuclear-outline"></ion-icon>
-                    Clear All
-                </button>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-l mx-auto p-6 rounded-xl shadow-xl border border-white/20 
+                bg-white/70 backdrop-blur-xl">
+
+            <div>
+                <h2 class="text-xl text-center font-semibold text-purple-800 mb-4">
+                    Task Management
+                </h2>
+
+                <!-- Input Field -->
+                <input id="taskInput" type="text" placeholder="Enter a new task..."
+                    class="w-full p-3 border-2 border-purple-700 rounded-lg mb-4 focus:outline-none focus:border-gray-900">
+
+                <select id="taskDropdown" class="w-full p-3 border-2 border-purple-700 rounded-lg mb-4">
+                    <option value="">Select a task to delete...</option>
+                </select>
+
+                <!-- Buttons -->
+                <div class="flex flex-wrap gap-3 mb-6 justify-center">
+                    <button id="addBtn" class="bg-purple-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-900 hover:text-white hover:shadow-xl hover:-translate-y-1
+                            transition-all duration-300">
+                        <ion-icon name="add-circle-outline"></ion-icon>
+                        Add Task
+                    </button>
+
+                    <button id="deleteBtn" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black hover:text-white hover:shadow-xl hover:-translate-y-1
+                            transition-all duration-300">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                        Delete Task
+                    </button>
+
+                    <button id="clearBtn" class="bg-red-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-800 hover:text-white hover:shadow-xl hover:-translate-y-1
+                            transition-all duration-300">
+                        <ion-icon name="nuclear-outline"></ion-icon>
+                        Clear All
+                    </button>
+                </div>
 
             </div>
-        </div>
 
-        <div>
-            <!-- Show Task on Screen -->
-            <h2 
-            class="text-xl font-semibold text-purple-700 mb-3">
-            Your Tasks
-            </h2>
-        
-        <hr class="border-purple-200 my-4">
+            <div>
+                <!-- Show Task on Screen -->
+                <h2 class="text-xl font-semibold text-purple-700 mb-3">
+                    Your Tasks
+                </h2>
 
-            <ul 
-            id="taskList" 
-            class="space-y-3 mb-6 p-4 bg-white/70 rounded-xl shadow p-4">
-            </ul>
+                <hr class="border-purple-200 my-4">
 
-            <p 
-            id="messageBox" 
-            class="text-center font-semibold mt-2">
-            </p>
-            
-            <hr class="border-purple-200 my-4">
+                <ul id="taskList" class="space-y-3 mb-6 p-4 bg-white/70 rounded-xl shadow p-4">
+                </ul>
 
-        </div>
-    </section>
+                <p id="messageBox" class="text-center font-semibold mt-2">
+                </p>
+
+                <hr class="border-purple-200 my-4">
+
+            </div>
+
+        </section>
+
+    </main>
 
     <footer class="py-6 px-4 max-w-3xl mx-auto">
-
         <!-- Copy Right Notice -->
         <p>&copy; 2026 Trell'z DeZignz</p>
+
     </footer>
 
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>

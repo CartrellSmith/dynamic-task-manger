@@ -11,7 +11,7 @@ const taskList = document.getElementById("taskList");
 // 2. STORAGE (Task List)
 // =============================
 let myTasks = [];
-myTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+myTasks = JSON.parse(localStorage.getItem("Items")) || [];
 renderTasks();
 
 // =============================
@@ -77,7 +77,7 @@ function addTask() {
         console.log(`${i + 1}. ${myTasks[i].name}`);
     }
 
-    localStorage.setItem("tasks", JSON.stringify(myTasks));
+    localStorage.setItem("Items", JSON.stringify(myTasks));
     input.value = "";
     renderTasks();
 }
@@ -99,7 +99,7 @@ function deleteTask() {
     }
 
     myTasks = updatedList;
-    localStorage.setItem("tasks", JSON.stringify(myTasks));
+    localStorage.setItem("Items", JSON.stringify(myTasks));
     renderTasks();
     showMessage("Task deleted!", "success");
 }
@@ -116,7 +116,7 @@ function clearTasks() {
     console.log("All tasks have been cleared!");
 
     // Save to local storage
-    localStorage.setItem("tasks", JSON.stringify(myTasks)); // 3. Save to local storage
+    localStorage.setItem("Items", JSON.stringify(myTasks)); // 3. Save to local storage
 }
 
 function renderTasks() {
@@ -134,7 +134,7 @@ function renderTasks() {
 
         checkbox.addEventListener("change", () => {
             myTasks[i].completed = checkbox.checked;
-            localStorage.setItem("tasks", JSON.stringify(myTasks));
+            localStorage.setItem("Items", JSON.stringify(myTasks));
 
             li.classList.toggle("line-through", checkbox.checked);
             li.classList.toggle("text-gray-500", checkbox.checked);
